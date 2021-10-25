@@ -233,8 +233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 7793643983253136022, guid: f6e834c32d50c9c4d882c51de8fdcd83, type: 3}
   BulletDirection: {x: 0, y: 0, z: 1}
-  SpawnInterval: 3
-  DespawnInSeconds: 6
+  SpawnInterval: 0.5
+  DespawnInSeconds: 2.26
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
