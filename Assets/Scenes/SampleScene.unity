@@ -386,6 +386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: resourceWood
       objectReference: {fileID: 0}
+    - target: {fileID: 3065328242027448544, guid: 746358b754a6ce6428e2abc4d5f477bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7aa68025ea741fc469145f389ed38bf9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 746358b754a6ce6428e2abc4d5f477bf, type: 3}
 --- !u!1 &705507993
@@ -991,6 +995,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -970815637077432658, guid: c43334c4655178a4792912fb747dcd29, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fc375c1e76fe22248aaf9b3eb27304a7, type: 2}
+    - target: {fileID: -970815637077432658, guid: c43334c4655178a4792912fb747dcd29, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: fc375c1e76fe22248aaf9b3eb27304a7, type: 2}
     - target: {fileID: 919132149155446097, guid: c43334c4655178a4792912fb747dcd29, type: 3}
       propertyPath: m_Name
       value: bedroll
@@ -1149,10 +1161,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4417613432503759561, guid: e968ff6cf8e1a1843aaff867e8ead3b9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 49e64476367d5e943ae09a919782cec3, type: 2}
+    - target: {fileID: -1718032744271887828, guid: e968ff6cf8e1a1843aaff867e8ead3b9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7aa68025ea741fc469145f389ed38bf9, type: 2}
     - target: {fileID: 919132149155446097, guid: e968ff6cf8e1a1843aaff867e8ead3b9, type: 3}
       propertyPath: m_Name
       value: campfire
       objectReference: {fileID: 0}
+    - target: {fileID: 8967936297961072905, guid: e968ff6cf8e1a1843aaff867e8ead3b9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7aa68025ea741fc469145f389ed38bf9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e968ff6cf8e1a1843aaff867e8ead3b9, type: 3}
 --- !u!1 &1756472894
