@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class ReactsToPlayer : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 4.0f;
+    [SerializeField] private float actionSpeed = 4.0f;
     [SerializeField] private EnemyState state = EnemyState.IDLE;
     [SerializeField] GameObject player;
 
@@ -37,19 +37,26 @@ public class ReactsToPlayer : MonoBehaviour
     {
         Vector3 direction = player.transform.position - transform.position;
         var newQuaternion = Quaternion.LookRotation(direction);
-        transform.rotation = newQuaternion;
+        // transform.rotation = newQuaternion;
+
+        transform.rotation = Quaternion.Lerp(
+            transform.rotation, 
+            newQuaternion,
+            Time.deltaTime * actionSpeed
+        );
     }
 
     private bool canApproach()
     {
-        return Mathf.Abs(transform.position.x - player.transform.position.x) >= 2.0f;
+        return Mathf.Abs(transform.position.x - player.transform.position.x) >= 2.0f ||
+        Mathf.Abs(transform.position.z - player.transform.position.z) >= 2.0f;
     }
 
     private void followPlayer()
     {
         if(canApproach()) {
             Vector3 direction = (player.transform.position - transform.position).normalized;
-            transform.Translate(movementSpeed * direction * Time.deltaTime);
+            transform.Translate(actionSpeed * direction * Time.deltaTime);
         }
     }
 
