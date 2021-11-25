@@ -5,7 +5,18 @@ using UnityEngine;
 public class MovesWithInput : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 1.0f;
-    [SerializeField] private float rotationSpeed = 1.0f;
+    [SerializeField] private float sensitivity = 2.0f;
+
+    float cameraAxisX = 0f;
+    float cameraAxisY = 0f;
+
+    private Dictionary<KeyCode, Vector3> movementBindings = new Dictionary<KeyCode, Vector3>()
+    {
+        { KeyCode.W, Vector3.forward },
+        { KeyCode.S, Vector3.back },
+        { KeyCode.A, Vector3.left },
+        { KeyCode.D, Vector3.right },
+    };
  
     // Start is called before the first frame update
     void Start()
@@ -16,13 +27,13 @@ public class MovesWithInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveWhenKeyPressed(KeyCode.W, Vector3.forward);
-        MoveWhenKeyPressed(KeyCode.S, Vector3.back);
-        MoveWhenKeyPressed(KeyCode.A, Vector3.left);
-        MoveWhenKeyPressed(KeyCode.D, Vector3.right); 
 
-        RotateWhenKeyPressed(KeyCode.LeftArrow, -0.75f);
-        RotateWhenKeyPressed(KeyCode.RightArrow, 0.75f);
+        foreach (var item in movementBindings)
+        {
+            MoveWhenKeyPressed(item.Key, item.Value);
+        }
+
+        FollowAxis();
     }
 
     void MoveWhenKeyPressed(KeyCode input, Vector3 dir) 
@@ -33,12 +44,14 @@ public class MovesWithInput : MonoBehaviour
         }
     }
 
-    void RotateWhenKeyPressed(KeyCode input, float rotation)
+    void FollowAxis() 
     {
-        if(Input.GetKey(input))
-        {
-            transform.localRotation = transform.localRotation * Quaternion.Euler(0, rotationSpeed * rotation, 0);
-        }
+        cameraAxisX -= Input.GetAxisRaw("Mouse Y");
+        cameraAxisY += Input.GetAxisRaw("Mouse X");
+
+        transform.localRotation = Quaternion.Euler(cameraAxisX * sensitivity, cameraAxisY * sensitivity, 0);
+
+        Debug.Log($"AxisX: {cameraAxisX}, AxisY: {cameraAxisY}");
     }
     
 }
